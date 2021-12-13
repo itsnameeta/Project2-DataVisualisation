@@ -13,25 +13,48 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
+var markersLayer = new L.LayerGroup();
+
+myMap.addLayer(markersLayer);
+
+var controlSearch = new L.controlSearch({
+  position:'topright',
+  layer: markersLayer,
+  initial: false,
+  zoom: 12,
+  marker: false
+});
+
+map.addControl( controlSearch);
+
+for (var i = 0; i < animals.length; i++) {
+  var title = animals[i].CommonNames,
+      loc = [animals[i].latitude, animals[i].longitude]
+  var marker = new L.Marker(new L.latlng(loc), {title: title} );
+  marker.bindPopup('Name: '+ title, 'Park: '+ park,);
+  markersLayer.addLayer(marker)
+}
+
+
 //connect to data
-var animalData = 'Resources/AnimalLocations.csv'
+var animals = 'Resources/AnimalLocations.csv'
 
 // Animal data
 
-var animals = [
-  {
-    animal_name: animalData.CommonNames,
-    park: animalData.Place_Name,
-    location: [animalData.Latitude, animalData.Longitude]
-  },
-];
+// var animals = [
+//   {
+//     animal_name: animalData.CommonNames,
+//     park: animalData.Place_Name,
+//     location: [animalData.Latitude, animalData.Longitude]
+//   },
+// ];
 
 // Loop through the cities array and create one marker for each city, bind a popup containing its name and population add it to the map
-for (var i = 0; i < animals.length; i++) {
-  var animals = animals[i];
-  L.marker(animals.location)
-    .bindPopup("<h1>" + animals.name + "</h1>" )
-    .addTo(myMap);
-}
+// for (var i = 0; i < animals.length; i++) {
+//   var animals = animals[i];
+//   L.marker(animals.location)
+//     .bindPopup("<h1>" + animals.name + "</h1>" )
+//     .addTo(myMap);
+// }
 
 pgClient.end();
