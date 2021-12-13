@@ -32,10 +32,43 @@ var myMap = L.map("map", {
     },
   ];
   
+
+
   // Loop through the cities array and create one marker for each city, bind a popup containing its name and population add it to the map
   for (var i = 0; i < BlackBears.length; i++) {
-    var BlackBears = BlackBears[i];
-    L.marker(BlackBears.location[i])
-        .bindPopup("<h1>" + BlackBears.park[i] + "</h1>" + "<h4>" + BlackBears.name[i] +"</h4>"  )
+    var BlackBear = BlackBears[i];
+    L.marker(BlackBear.location)
+        .bindPopup("<h1>" + BlackBear.park + "</h1>" + "<h4>" + BlackBear.name +"</h4>"  )
         .addTo(myMap);
   }
+
+var animalData = data;
+
+button.on("click", renderTable);
+form.on("submit", renderTable);
+
+var inputAnimal = d3.select("#animal");
+    
+// Get the value property of the input element
+var inputValue = inputAnimal.property("value");
+
+var filteredData = animalData.filter((animal) => {
+
+  var matchesAnimal = false;
+
+  if (inputValue.length == '0' || animal.CommonNames.toLowerCase().includes(inputValue)) {
+    matchesAnimal = true;
+  }
+
+  return matchesAnimal;
+
+});
+
+
+  for (var i = 0; i < chosenAnimal.length; i++) {
+    var animal = chosenAnimal[i];
+    L.marker(animal.location)
+        .bindPopup("<h1>" + animal.park + "</h1>" + "<h4>" + animal.name +"</h4>"  )
+        .addTo(myMap);
+  }
+ 
