@@ -80,5 +80,8 @@ def get_animals():
         animalList.append(temp)
 
     print(animalList) 
+
+    return render_template("animals.html", parks=animalList)  
+
 if __name__ == '__main__':
     app.run(debug=True)
