@@ -36,8 +36,6 @@ for (var i = 0; i < animals.length; i++) {
 }
 
 
-//connect to data
-var animals = 'Resources/AnimalLocations.csv'
 
 // Animal data
 
