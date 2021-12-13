@@ -4,7 +4,7 @@ import psycopg2
 
 app = Flask(__name__)
 #connect to db
-db_conn = psycopg2.connect("dbname=postgres port=5432 user=postgres password=tiki")
+db_conn = psycopg2.connect("dbname=postgres port=5432 user=postgres password=Oceans11")
 db_cursor = db_conn.cursor()
 #app = Flask(__name__, template_folder='../templates')
 app = Flask(__name__)
@@ -80,5 +80,8 @@ def get_animals():
         animalList.append(temp)
 
     print(animalList) 
+
+    return render_template("animals.html", parks=animalList)  
+
 if __name__ == '__main__':
     app.run(debug=True)
