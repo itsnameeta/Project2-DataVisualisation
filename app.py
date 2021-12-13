@@ -56,6 +56,29 @@ def get_parks():
     return render_template("parks.html", parks=pasksList)    
    
 # Close the database cursor and connection
+@app.route("/animals")
+def get_animals():
+    print("in get cusrsor function")
+    db_cursor.execute("select * from animal_locations")
+    result = db_cursor.fetchall()
 
+    ## the park count starts with zero. in order to increment it first convert tuple to list
+    result2 = list(map(list, result))
+    animalList= []
+    ## increment the count by 1
+    for i in range(len(result2)) : 
+        temp = {}
+        temp_loc = []
+        
+        temp['name'] = result2[i][1]
+        
+        temp_loc.append(result2[i][2])
+        temp_loc.append(result2[i][3])
+        
+        temp['location'] = temp_loc
+
+        animalList.append(temp)
+
+    print(animalList) 
 if __name__ == '__main__':
     app.run(debug=True)
