@@ -20,10 +20,6 @@ var parks = [
     location: [40.343182, -105.688103]
   },
   {
-    name: "Katmai National Park and Preserve, King Salmon",
-    location: [58.597813,	-154.693756]
-  },
-  {
     name: "Glacier Bay National Park and Preserve, Alaska",
     location: [58.665806,	-136.900208]
   },
