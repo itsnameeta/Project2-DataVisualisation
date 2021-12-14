@@ -16,7 +16,7 @@ var myMap = L.map("map", {
   // Country data
   var BlackBears = [
     {
-      name: "Black Bear",
+      name: "Black Bear & Grizzly Bear",
       park: "Denali Preserve",
       location: [63.129887, -151.197418],
     },
@@ -26,9 +26,39 @@ var myMap = L.map("map", {
         location: [25.286615, -80.898651],
     },
     {
-      name: "American black bear",
+      name: "American Black bear & Grizzly Bear",
       park: "Glacier Bay National Park and Preserve",
       location: [58.665806,	-136.900208]
+    },
+    {
+      name: "Black Bear",
+      park: "Yosemite National Park",
+      location: [37.865101,	-119.53833]
+    },
+    {
+      name: "Black Bear",
+      park: "Yosemite National Park",
+      location: [37.865101,	-119.53833]
+    },
+    {
+      name: "Black Bear",
+      park: "Yellowstone National Park",
+      location: [44.423691,	-110.588516]
+    },
+    {
+      name: "Grizzly Bear",
+      park: "Glacier National Park",
+      location: [48.7596128, -113.787022]
+    },
+    {
+      name: "Grizzly & Black Bear",
+      park: "Grand Teton National Park",
+      location: [43.472554, -110.405435]
+    },
+    {
+        name: "Grizzly & Black Bear",
+        park: "Katmai National Park and Preserve",
+        location: [43.472554, -110.405435]
     },
   ];
   
